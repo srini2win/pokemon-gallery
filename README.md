@@ -35,7 +35,7 @@ If dependencies are not installed, please follow steps given below, otherwise fo
 
 ## Code setup
 1. Once dependencies are installed, project can be clonned using following command
-> git clone https://github.com/arvaidya/pokemonGallery.git
+> git clone https://github.com/srini2win/pokemon-gallery.git
 2. Go inside pokemonGallery and run following command
 > npm install
 
