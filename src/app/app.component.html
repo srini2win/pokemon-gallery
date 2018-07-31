@@ -1,0 +1,35 @@
+<div id="preloader" *ngIf="showloader" ></div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-12">
+          <form>
+              <div class="form-group">
+                <label for="name">Search Pokemon</label>
+                <input type="text" class="form-control" id="name" (keyup)="searchPokemon($event)">
+              </div>
+          </form>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+      <div class="column" *ngFor="let image of imageResults | slice: (curPage * pageSize) - pageSize :curPage * pageSize">
+          <div>
+            <img src="../../assets/images/pokemonImages/{{image.url}}.png" alt="{{image.name}}"/>
+            <div class="caption" style="align-items: center">
+              <label>#<strong>{{image.url}}</strong></label><br>
+            </div>
+            <div class="caption" style="text-transform: capitalize">
+              <strong>{{image.name}}</strong>
+            </div>
+          </div>
+  </div>
+</div>
+<p class="pagination">
+  <button  class="btn btn-dark" [disabled] ="curPage == 1" (click)="curPage = curPage - 1">PREV</button>
+    <span>Page {{curPage}} of {{ numberOfPages() }}</span>
+  <button  class="btn btn-dark" [disabled] = "curPage >= imageResults.length/pageSize"
+           (click) ="curPage = curPage + 1">NEXT</button>
+</p>
+</div>
